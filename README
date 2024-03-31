@@ -1,0 +1,22 @@
+# Yellow Taxi Trip Data Analysis Project
+
+## Project Overview:
+This project encompasses the extraction and cleansing of one month's worth of yellow taxi trip data. The data is cleaned, filtering out records with `passenger_count <= 0`, and then seamlessly loaded into a PostgreSQL database. Subsequently, the data is aggregated to unveil insights into the total amount per day.
+
+## Setup Instructions:
+1. Begin by cloning this repository onto your local machine.
+2. Proceed to install the necessary libraries via `pip install -r requirements.txt`.
+3. Update the `config.yaml` file with your PostgreSQL database connection details.
+4. Ensure that the specified database in the configuration file (`ota`) is created if it doesn't exist already.
+
+## Execution Instructions:
+1. Execute the Python script (`main.py`) to commence the data processing pipeline.
+2. Navigate to the `output` directory to locate the generated visualization(s), and simultaneously check the database for the meticulously loaded data.
+
+## Discussion:
+During the data loading phase into the PostgreSQL database, a significant challenge arose, promptly addressed through the implementation of a chunking methodology within the Python script. This strategic approach not only ensured efficient processing but also mitigated potential memory errors, enhancing the overall robustness of the pipeline.
+
+## Outputs:
+The visualization below portrays the culmination of aggregated insights, illustrating the Total Amount Per Day:
+
+![Total Amount Per Day](./aggregates_screenshots/total_amount_per_day.png)
