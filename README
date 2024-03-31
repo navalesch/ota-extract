@@ -1,22 +1,57 @@
-# Yellow Taxi Trip Data Analysis Project
+README
 
-## Project Overview:
-This project encompasses the extraction and cleansing of one month's worth of yellow taxi trip data. The data is cleaned, filtering out records with `passenger_count <= 0`, and then seamlessly loaded into a PostgreSQL database. Subsequently, the data is aggregated to unveil insights into the total amount per day.
+Yellow Taxi Trip Data Analysis Project
 
-## Setup Instructions:
+Project Overview:
+This project encompasses the extraction and cleansing of one month's worth of yellow taxi trip data. The data is cleaned, filtering out records with `passenger_count <= 0`, and then seamlessly loaded into a PostgreSQL database. Subsequently, the data is aggregated to show basic insights into the total amount per day.
+
+Setup Instructions:
 1. Begin by cloning this repository onto your local machine.
 2. Proceed to install the necessary libraries via `pip install -r requirements.txt`.
 3. Update the `config.yaml` file with your PostgreSQL database connection details.
 4. Ensure that the specified database in the configuration file (`ota`) is created if it doesn't exist already.
 
-## Execution Instructions:
+Execution Instructions:
 1. Execute the Python script (`main.py`) to commence the data processing pipeline.
-2. Navigate to the `output` directory to locate the generated visualization(s), and simultaneously check the database for the meticulously loaded data.
+2. Navigate to the `output` directory to locate the generated visualization(s), and simultaneously check the database for the loaded data.
 
-## Discussion:
-During the data loading phase into the PostgreSQL database, a significant challenge arose, promptly addressed through the implementation of a chunking methodology within the Python script. This strategic approach not only ensured efficient processing but also mitigated potential memory errors, enhancing the overall robustness of the pipeline.
+Discussion:
+During the data loading phase into the PostgreSQL database, a significant challenge arose, promptly addressed through the implementation of a chunking within the Python script. This strategic approach not only ensured efficient processing but also mitigated potential memory errors, enhancing the overall robustness of the pipeline.
 
-## Outputs:
-The visualization below portrays the culmination of aggregated insights, illustrating the Total Amount Per Day:
+Outputs:
+The visualization below portraysaggregated insights, illustrating the Total Amount Per Day: /aggregates_screenshots/total_amount_per_day.png
 
-![Total Amount Per Day](./aggregates_screenshots/total_amount_per_day.png)
+
+Configuration Details
+
+Download Settings
+
+- download_folder: Specifies the folder where downloaded files will be stored. In this configuration, it is set to 'download-staging'.
+
+Data Extraction Settings
+
+- extract_files_count: Specifies the number of files to extract data from the data provider. Here, it is set to 1.
+  
+- file_filter: Defines the filter for files that need to be extracted. In this case, the filter is set to 'yellow_tripdata'.
+
+- data_filters: Lists SQL syntax filters to further refine the extracted data. For instance, "passenger_count > 0" is provided as an example. The second filter (trip_distance > 1) is commented out but can be activated if needed.
+
+Database Connection Settings
+
+- db_host: Specifies the host where the database is located. In this configuration, it is set to 'localhost'.
+
+- db_port: Specifies the port number for the database connection. Here, it is set to '5432'.
+
+- db_name: Specifies the name of the database. In this configuration, it is set to 'ota'.
+
+- db_user: Specifies the username used to connect to the database. Here, it is set to 'postgres'.
+
+- db_user_pwd: Specifies the password for the database user. The actual password is masked for security reasons.
+
+- table_name: Specifies the name of the table in the database where the extracted data will be stored. In this configuration, it is set to 'tb_testing'.
+
+- row_count_per_file: Specifies the maximum number of rows per file to be processed. Here, it is set to 0, indicating no limit.
+
+Data Processing Settings
+
+- chunk_size: Specifies the number of rows per chunk during data processing. In this configuration, it is set to 1000.
