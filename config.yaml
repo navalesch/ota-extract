@@ -1,0 +1,16 @@
+download_folder: 'download-staging'
+extract_files_count: 1
+file_filter: 'yellow_tripdata'
+data_filters:
+  - "passenger_count > 0"
+  # - "trip_distance > 1"
+
+db_host: 'localhost'
+db_port: '5432'
+db_name: 'ota'
+db_user: 'postgres'
+db_user_pwd: 'DkEO5ik4nPsZpwQ9deh6'
+table_name: 'tb_testing'
+row_count_per_file: 0
+
+chunk_size: 1000
